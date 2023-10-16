@@ -1,6 +1,4 @@
-import { type } from "os"
-
-type ButtonProps = {
+export type ButtonProps = {
     children: React.ReactNode
 } & React.ButtonHTMLAttributes<HTMLButtonElement>;
 
