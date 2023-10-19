@@ -42,11 +42,11 @@ const config: Config = {
     },
 
     fontSize: {
-      xs: 'var(--font-xs)',
-      sm: 'var(--font-sm)',
-      md: 'var(--font-md)',
-      lg: 'var(--font-lg)',
-      xl: 'var(--font-xl)',
+      xs: 'var(--text-xs)',
+      sm: 'var(--text-sm)',
+      md: 'var(--text-md)',
+      lg: 'var(--text-lg)',
+      xl: 'var(--text -xl)',
     },
     
 
@@ -60,6 +60,7 @@ const config: Config = {
         click: 'rgba(var(--click), <alpha-value>)',
         icon: 'rgba(var(--icon), <alpha-value>)',
         divider: 'rgba(var(--divider), <alpha-value>)',
+        disabled: 'rgba(var(--text-disabled), <alpha-value>)',
        },
 
       backgroundColor: {
@@ -74,7 +75,6 @@ const config: Config = {
           secondary: 'rgba(var(--text-secondary), <alpha-value>)',
           tertiary: 'rgba(var(--text-tertiary), <alpha-value>)',
         },
-        disabled: 'rgba(var(--text-disabled), <alpha-value>)',
       },
 
       boxShadow: {
