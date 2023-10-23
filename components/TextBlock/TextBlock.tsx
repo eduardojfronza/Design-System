@@ -1,23 +1,34 @@
+import React from "react";
+import Box from "../Box/Box";
+import Typography from "../Typography/Typography";
+
+
 export type TextBlockProps = {
-    title: string;
-    textBlock: string;
-    className?: string;
-}
+    title?: string;
+    type?: "primary" | "secondary" | "dark";
+    children: React.ReactNode;
+  } & React.HTMLAttributes<HTMLElement>;
+  
 
-const TextBlock = ({ title, textBlock, className }: TextBlockProps) => {
-    return <div
-    className={`
-        flex flex-col justify-center items-start py-6 pr-5 pl-8 gap-3 bg-dark rounded-md
-        ${className}
-    `}
-    >
-        <h3 className="text-gray-primary font-extrabold text-xl">
+  const TextBlock = ({
+    title,
+    type = "dark",
+    children,
+    className,
+    ...rest
+  }: TextBlockProps) => {
+    const textClass = type === "primary" ? "text-white" : "text-gray-primary";
+    return (
+      <Box className={`flex flex-col gap-2 p-5  `} type={type} rounded {...rest}>
+        <div className={className}>
+          <Typography className={`font-bold ${textClass}`} size="xl">
             {title}
-        </h3>
-        <p className="text-gray-primary font-normal text-md">
-            {textBlock}
-        </p>
-    </div>
-}
-
-export default TextBlock
+          </Typography>
+          <Typography className={textClass}>{children}</Typography>
+        </div>
+      </Box>
+    );
+  };
+  
+  export default TextBlock;
+  
