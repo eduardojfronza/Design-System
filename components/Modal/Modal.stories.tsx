@@ -25,6 +25,22 @@ const ModalStoryInfo = (args: ModalProps) => {
     )
 };
 
+const ModalStoryChoice = (args: ModalProps) => {
+    const [isOpen, setIsOpen] = useState(args.isOpen);
+    return (
+      <>
+        <Button onClick={() => setIsOpen(true)}>Abrir Modal</Button>
+        <Modal {...args} isOpen={isOpen} onClose={() => setIsOpen(false)}>
+          <Typography>Your changes will be lost</Typography>
+          <div className=" flex flex-col gap-3">
+            <Button>Save changes</Button>
+            <Button variant="secondary">Don't save</Button>
+          </div>
+        </Modal>
+      </>
+    );
+  };
+
 const meta: Meta<typeof Modal> = {
     title: 'Molecules/Modal',
     component: Modal,
@@ -50,3 +66,16 @@ export const ModalInfo: Story = {
         return <ModalStoryInfo {...args} />;
   },
 };
+
+export const ModalChoice: Story = {
+    args: {
+      isOpen: false,
+      title: "Do you want to save your changes?",
+    },
+    render: (args: ModalProps) => {
+      return <ModalStoryChoice {...args} />;
+    },
+  };
+  
+
+
